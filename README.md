@@ -1,4 +1,3 @@
-
 graph TD
     subgraph "High-Level (Linux / ROS 2)"
         Cam[USB Camera] -->|OpenCV| Tag[AprilTag Node]
@@ -18,8 +17,3 @@ graph TD
     end
 
     MCU -.->|Odometry Data| Bridge
-
-
-
-    
-
