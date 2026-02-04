@@ -4,17 +4,13 @@ This project implements a ROS 2-based autonomous mobile robot capable of
 visual navigation using AprilTags, obstacle avoidance using ToF sensors,
 and omnidirectional motion via an ESP32-based motor controller.
 
-
-## System Architecture
-
 graph TD
     subgraph "High-Level (Linux / ROS 2)"
         Cam[USB Camera] -->|OpenCV| Tag[AprilTag Node]
-        Tag -->|geometry_msgs/Twist| Bridge[Serial Bridge Node
+        Tag -->|geometry_msgs/Twist| Bridge[Serial Bridge Node]
+    end
 
-end
-        
-subgraph "Low-Level (ESP32 Firmware)"
+    subgraph "Low-Level (ESP32 Firmware)"
         Bridge -->|UART: V,vx,vy,wz| MCU[ESP32 MCU]
         MCU -->|PWM| Drv[Motor Drivers]
         Enc[Encoders] -->|Interrupts| MCU
@@ -22,15 +18,11 @@ subgraph "Low-Level (ESP32 Firmware)"
         IMU[MPU6050] -->|I2C| MCU
     end
 
-subgraph "Physical Actuation"
+    subgraph "Physical Actuation"
         Drv -->|Voltage| Motors[Mecanum Wheels]
     end
 
-MCU -.->|Odometry Data| Bridge
-
-
-
-    ````````
+    MCU -.->|Odometry Data| Bridge
 
 
 
