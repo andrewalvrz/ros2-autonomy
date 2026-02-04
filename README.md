@@ -1,10 +1,3 @@
-# Autonomous Mobile Robot 
-
-This project implements a ROS 2-based autonomous mobile robot capable of
-visual navigation using AprilTags, obstacle avoidance using ToF sensors,
-and omnidirectional motion via an ESP32-based motor controller.
-
-`````
 
 graph TD
     subgraph "High-Level (Linux / ROS 2)"
